@@ -6,14 +6,14 @@ Datalous is a data-engineering platform that builds structure around raw machine
 
 ```mermaid
 flowchart TD
-  A["Raw Machine Vision Data\n(videos, keypoints, trajectories, logs)"]
-  A --> B["Datalous\n_infrastructure for machine vision data_"]
+  A["Raw Machine Vision Data (videos, keypoints, logs)"]
+  A --> B["Datalous — infrastructure for machine vision data"]
 
-  B --> C["Data Storage & Backups"]
-  B --> D["Data Handling Pipelines"]
+  B --> C["Data Storage & Backup"]
+  B --> D["Processing Pipelines"]
   B --> E["Configs & Metadata"]
 
-  C --> F["GUI Client\n(exploration & inspection)"]
-  D --> G["Statistical Analysis & Visualization"]
+  C --> F["GUI Client"]
+  D --> G["Analysis & Visualization"]
   E --> F
   E --> G
