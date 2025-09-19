@@ -4,16 +4,31 @@ Infrastructures for machine vision data
 
 Datalous is a data-engineering platform that builds structure around raw machine vision outputs such as videos, keypoints, and trajectories. Inspired by Daedalus, the mythic craftsman, it provides the tools and pipelines needed to transform complex spatiotemporal data into analyzable, usable formats.
 
-```mermaid
-flowchart TD
-  A["Raw Machine Vision Data (videos, keypoints, logs)"]
-  A --> B["Datalous — infrastructure for machine vision data"]
-
-  B --> C["Data Storage & Backup"]
-  B --> D["Processing Pipelines"]
-  B --> E["Configs & Metadata"]
-
-  C --> F["GUI Client"]
-  D --> G["Analysis & Visualization"]
-  E --> F
-  E --> G
+                ┌─────────────────────────┐
+                │   Raw Machine Vision    │
+                │  (videos, keypoints,    │
+                │   trajectories, logs)   │
+                └───────────┬─────────────┘
+                            │
+                            ▼
+              ┌─────────────────────────────┐
+              │          Datalous           │
+              │  Infrastructure for Machine │
+              │        Vision Data          │
+              └───────────┬─────────────────┘
+                          │
+      ┌───────────────────┼────────────────────┐
+      ▼                   ▼                    ▼
+┌─────────────┐    ┌──────────────┐    ┌──────────────────┐
+│ Data Storage│    │ Data Handling│    │    Configs       │
+│  & Backups  │    │ Pipelines    │    │   & Metadata     │
+└─────────────┘    └──────────────┘    └──────────────────┘
+      │                   │                    │
+      └───────────┬───────┴───────────┬────────┘
+                  │                   │
+                  ▼                   ▼
+        ┌────────────────┐    ┌─────────────────────┐
+        │    GUI Client  │    │ Statistical Analysis │
+        │ (exploration,  │    │   & Visualization    │
+        │ inspection)    │    └─────────────────────┘
+        └────────────────┘
