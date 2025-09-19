@@ -18,6 +18,7 @@ VIDEO_DIR = "KognitiveNeurowissenschaften/PriCaB/HomeCage/Videos/_automated/"
 OUT_ROOT = "KognitiveNeurowissenschaften/PriCaB/HomeCage/Videos/_processed"
 
 # ABT headless repo (module invocation)
+ABT_VENV = "/home/cams/Desktop/ABT/ABT_venv/bin/python"
 ABT_ROOT = "/home/cams/Desktop/ABT/ABT_Software-headless"
 BOXPOSE = os.path.join(ABT_ROOT, "models/box_pose_detector/monkey_box_pose.pt")
 
@@ -72,9 +73,10 @@ out_root_abs = os.path.join(MOUNTPOINT, OUT_ROOT)
 os.makedirs(out_root_abs, exist_ok=True)
 
 print("\n=== Paths ===")
-print("Videos :", video_dir_abs)
-print("Output :", out_root_abs)
-print("ABT    :", ABT_ROOT)
+print("Input Videos :", video_dir_abs)
+print("Output Folder :", out_root_abs)
+print("ABT virtual Environment: ", ABT_VENV)
+print("ABT-Software :", ABT_ROOT)
 print()
 
 if not os.path.exists(BOXPOSE):
@@ -116,7 +118,7 @@ for i, src in enumerate(sources, 1):
     VENV_PY = os.path.expanduser("~/Desktop/ABT/ABT_venv/bin/python")
 
     cmd = [
-        VENV_PY, # Invoke within the virtual environment where ABT is installed
+        ABT_VENV, # Invoke within the virtual environment where ABT is installed
         "-m", "Modules_2D.box_pose_identification_2d",
         "-b", BOXPOSE,
         "-v", src,
