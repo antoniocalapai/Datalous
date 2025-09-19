@@ -77,6 +77,10 @@ print("Output :", out_root_abs)
 print("ABT    :", ABT_ROOT)
 print()
 
+if not os.path.exists(BOXPOSE):
+    print(f"ERROR: BoxPose weight not found at {BOXPOSE}", file=sys.stderr)
+    sys.exit(1)
+
 # --- Collect only .mp4 recursively ---
 sources = sorted(glob.glob(os.path.join(video_dir_abs, "**", "*.mp4"), recursive=True))
 print(f"Found {len(sources)} .mp4 videos.")
