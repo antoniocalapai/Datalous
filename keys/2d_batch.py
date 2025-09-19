@@ -109,8 +109,11 @@ for i, src in enumerate(sources, 1):
     print(f"[{i}/{total}] run   {base}  (tokens: {', '.join(sorted(tokens))})")
 
     # Build the module command (NO identification)
+    VENV_PY = os.path.expanduser("~/Desktop/ABT/ABT_venv/bin/python")
+
     cmd = [
-        "python3", "-m", "Modules_2D.box_pose_identification_2d",
+        VENV_PY, # Invoke within the virtual environment where ABT is installed
+        "-m", "Modules_2D.box_pose_identification_2d",
         "-b", BOXPOSE,
         "-v", src,
         "-m", NUM_MONKEYS,
